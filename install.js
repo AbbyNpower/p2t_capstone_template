@@ -12,3 +12,4 @@ async function createFile(filename, data) {
 
 // Create .env file for backend with placeholder content
 createFile('./capstone-backend/.env', `DB_URL="YOUR_MONGO_DB_URL_HERE"`);
+console.log('Installation complete. Please update the capstone-backend/.env file with your MongoDB URL. In the file, replace "YOUR_MONGO_DB_URL_HERE" with your actual MongoDB connection string.');
