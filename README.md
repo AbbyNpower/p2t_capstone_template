@@ -40,7 +40,14 @@ To get the GitHub URL to clone the repo click on the green button title "<> Code
 3. Take a look at [Capstone Backend README](capstone-backend/README.md) and follow the directions to set up the environment variables to install a MongoDB database for the project
 
 ## Running Project
-1. You will have to install your node packages from `package.json` to `node_modules`
+1. Run the `install.js` script to configure your project setup, to do so open a terminal and run this command:
+```sh
+node install.js
+```
+
+**This script will create a file located in `./capstone-backend/.env` you will still need to configure your MongoDB access credentials in this file**
+
+2. You will have to install your node packages from `package.json` to `node_modules`
 
 To accomplish this, open this project in Visual Studio Code, and open a new terminal session
 
@@ -49,7 +56,7 @@ Run the command
 npm install
 ```
 
-2. To run the code you have two options, to run it with Visual Studio Code's GUI or to open a terminal and run the following command
+3. To run the code you have two options, to run it with Visual Studio Code's GUI or to open a terminal and run the following command
 
 ```sh
 npm start
