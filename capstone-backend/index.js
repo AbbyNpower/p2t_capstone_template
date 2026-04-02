@@ -1,38 +1,38 @@
-require('dotenv').config();
-const express = require('express');
-const cors = require('cors');
-const mongoose = require('mongoose');
+require("dotenv").config();
+const express = require("express");
+const cors = require("cors");
+const mongoose = require("mongoose");
+
+const productRoutes = require("./routes/productRoutes");
+const authRoutes = require("./routes/authRoutes");
+const orderRoutes = require("./routes/orderRoutes");
+const paymentRoutes = require("./routes/paymentRoutes");
+
 const app = express();
 const port = process.env.PORT || 3500;
-const dbUrl = process.env.DB_URL;
 
-// Connect to MongoDB
-mongoose.connect(dbUrl)
-.then(() => console.log('MongoDB connected'))
-.catch(err => console.error('MongoDB connection error:', err));
-
+// Middleware
 app.use(cors());
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 
-app.get('/', (req, res) => {
-    res.send('Welcome to the Capstone Backend API');    
+// DB connection
+mongoose
+  .connect(process.env.DB_URL)
+  .then(() => console.log("MongoDB connected"))
+  .catch((err) => console.error(err));
+
+// Health route
+app.get("/", (req, res) => {
+  res.send("API is running...");
 });
 
-app.get('/products', async (req, res) => {
-    try {
-        const products = [
-            { id: 1, name: 'Product 1', price: 100 },
-            { id: 2, name: 'Product 2', price: 200 },
-            { id: 3, name: 'Product 3', price: 300 }
-        ];
-        res.json(products);
-    } catch (error) {
-        console.error('Error fetching products:', error);
-        res.status(500).json({ message: 'Internal Server Error' });
-    }
-});
+// Routes
+app.use("/api/products", productRoutes);
+app.use("/api/auth", authRoutes);
+app.use("/api/orders", orderRoutes);
+app.use("/api/payment", paymentRoutes);
 
+// Start server
 app.listen(port, () => {
-    console.log(`Server running on http://localhost:${port}`);
+  console.log(`Server running on http://localhost:${port}`);
 });

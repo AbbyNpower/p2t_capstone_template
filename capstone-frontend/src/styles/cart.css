@@ -1,0 +1,99 @@
+/* MAIN COLOR THEME — using your existing blue */
+:root {
+  --primary: #3b6edc;      /* your main blue */
+  --primary-dark: #2c55b5; /* darker shade for hover */
+  --light-bg: #f3f6ff;     /* soft background that matches your blue */
+}
+
+/* CART CONTAINER */
+.cart-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background: var(--light-bg);  
+  border-radius: 12px;
+  border: 2px solid var(--primary);
+}
+
+/* CART ITEM */
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 0;
+  border-bottom: 2px solid var(--primary);
+}
+
+/* CART ITEM IMAGE — MEDIUM SIZE */
+.cart-item img {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-right: 20px;
+  border: 3px solid var(--primary); /* unified border */
+}
+
+/* ITEM INFO */
+.cart-item-info {
+  flex: 1;
+  margin-left: 10px;
+}
+
+.cart-item-info h3 {
+  margin: 0;
+  font-size: 20px;
+  color: var(--primary);
+}
+
+.cart-item-info p {
+  margin: 5px 0 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--primary-dark);
+}
+
+/* BUTTONS — MATCHES Cart.jsx */
+.checkout-btn,
+.clear-btn {
+  padding: 10px 18px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 15px;
+
+  width: auto;
+  display: inline-block;
+
+  transition: background 0.2s ease, transform 0.15s ease;
+
+  margin-right: 10px;
+}
+
+/* HOVER EFFECT */
+.checkout-btn:hover,
+.clear-btn:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+/* DISABLED STATE */
+.checkout-btn:disabled,
+.clear-btn:disabled {
+  background: #999;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* SUMMARY SECTION */
+.cart-summary {
+  margin-top: 20px;
+  text-align: right;
+}
+
+.cart-summary h2 {
+  margin-bottom: 15px;
+  color: var(--primary);
+}

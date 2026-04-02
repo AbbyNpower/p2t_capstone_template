@@ -1,11 +1,18 @@
 .navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 5px;
-    background-color: #e6ccb2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #222;
+  color: white;
+  padding: 15px;
 }
-.nav-links-container {
-    display: flex;
-    gap: 10px;
+
+.nav-link {
+  margin-left: 15px;
+  text-decoration: none;
+  color: white;
+}
+
+.nav-link:hover {
+  color: #ffcc00;
 }
