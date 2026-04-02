@@ -11,8 +11,14 @@ const paymentRoutes = require("./routes/paymentRoutes");
 const app = express();
 const port = process.env.PORT || 3500;
 
-// Middleware
-app.use(cors());
+// CORS FIX — THIS ALLOWS FRONTEND TO TALK TO BACKEND WITHOUT ISSUES
+app.use(
+  cors({
+    origin: process.env.CLIENT_URL,
+    credentials: true,
+  })
+);
+
 app.use(express.json());
 
 // DB connection
@@ -34,5 +40,5 @@ app.use("/api/payment", paymentRoutes);
 
 // Start server
 app.listen(port, () => {
-  console.log(`Server running on http://localhost:${port}`);
+  console.log(`Server running on port ${port}`);
 });

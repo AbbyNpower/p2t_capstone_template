@@ -3,7 +3,7 @@ import { useCartStore } from "../store/CartStore";
 import axios from "axios";
 import "../styles/products.css";
 
-const baseURL = "http://localhost:3500/api/products";
+const baseURL = `${import.meta.env.VITE_API_URL}/api/products`;
 
 function Products() {
   const [products, setProducts] = useState([]);

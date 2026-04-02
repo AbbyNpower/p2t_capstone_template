@@ -15,7 +15,8 @@ function AddProduct() {
 
     const token = localStorage.getItem("token");
 
-    await fetch("http://localhost:3500/api/products", {
+    await fetch(`${import.meta.env.VITE_API_URL}/api/products`
+, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${token}`, // keep auth

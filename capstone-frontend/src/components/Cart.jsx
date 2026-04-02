@@ -20,7 +20,7 @@ function Cart() {
       const stripe = await stripePromise;
 
       const response = await fetch(
-        "http://localhost:3500/api/payment/create-checkout-session",
+        `${import.meta.env.VITE_API_URL}/api/payment/create-checkout-session`,
         {
           method: "POST",
           headers: {
