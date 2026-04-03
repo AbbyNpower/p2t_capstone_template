@@ -44,7 +44,7 @@ function Cart() {
       console.log("Checkout error:", err);
       alert("Checkout failed");
     }
-  }; // <-- correct closing of handleCheckout
+  };
 
   return (
     <div className="cart-container">
@@ -82,3 +82,4 @@ function Cart() {
 }
 
 export default Cart;
+
